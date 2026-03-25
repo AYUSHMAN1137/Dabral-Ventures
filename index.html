@@ -20,7 +20,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
@@ -44,7 +44,7 @@
     <div class="cursor-follower" id="cursor-follower"></div>
 
     <!-- Navigation -->
-    <header class="header" id="header">
+    <header class="header" id="navbar">
         <nav class="nav container">
             <a href="#" class="nav-logo">
                 <span class="logo-icon">⚡</span>
@@ -109,13 +109,13 @@
                 </a>
             </div>
             
-            <div class="nav-toggle" id="nav-toggle">
+            <div class="nav-toggle" id="menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </nav>
-        <div class="nav-progress" id="nav-progress"></div>
+        <div class="nav-progress" id="scroll-progress"></div>
     </header>
 
     <main>
@@ -132,7 +132,9 @@
                 <div class="scan-lines"></div>
             </div>
             
-            <div class="hero-particles" id="particles"></div>
+            <div class="hero-particles" id="hero-particles">
+                <div id="particles"></div>
+            </div>
 
             <!-- Floating code snippets in background -->
             <div class="floating-code-snippets">
