@@ -976,6 +976,8 @@ ul, ol {
 .hero-right {
     position: relative;
     perspective: 1200px;
+    align-self: center;
+    padding-left: 28px;
 }
 
 .terminal-window {
@@ -989,6 +991,7 @@ ul, ol {
         0 0 0 1px rgba(0, 212, 255, 0.1),
         0 0 60px rgba(0, 212, 255, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    margin-top: -48px;
     transform: rotateY(-4deg) rotateX(2deg);
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     animation: terminalFloat 6s ease-in-out infinite;
@@ -1084,8 +1087,8 @@ ul, ol {
 .terminal-body {
     display: flex;
     padding: 20px 0;
-    min-height: 380px;
-    max-height: 420px;
+    min-height: 360px;
+    max-height: 400px;
     overflow: hidden;
     position: relative;
 }
@@ -1392,9 +1395,12 @@ ul, ol {
     .hero-right {
         max-width: 600px;
         margin: 0 auto;
+        align-self: auto;
+        padding-left: 0;
     }
 
     .terminal-window {
+        margin-top: 0;
         transform: none;
         animation: none;
     }

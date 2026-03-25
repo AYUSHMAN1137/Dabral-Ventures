@@ -930,8 +930,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         lineEl.innerHTML = completedTokens + renderToken(partialToken);
                         
                         // Typing speed variation for realism
-                        const baseSpeed = 25;
-                        const variation = Math.random() * 30;
+                        const baseSpeed = 14;
+                        const variation = Math.random() * 18;
                         await sleep(baseSpeed + variation);
                     }
                 }
@@ -950,7 +950,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // Short pause between lines
-                await sleep(80 + Math.random() * 60);
+                await sleep(45 + Math.random() * 35);
             }
 
             isTyping = false;
@@ -968,7 +968,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentSnippet = (currentSnippet + 1) % codeSnippets.length;
                 
                 // Pause before clearing and typing next snippet
-                await sleep(3000);
+                await sleep(1200);
             }
         };
 
