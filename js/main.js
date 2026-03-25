@@ -901,6 +901,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const typeSnippet = async (snippetIndex) => {
             const snippet = codeSnippets[snippetIndex];
             isTyping = true;
+            
+            // Get terminal body for dynamic height adjustment
+            const terminalBody = terminalCode.closest('.terminal-body');
+            const lineHeight = 1.8 * 0.85 * 16; // line-height * font-size in px (approx 24px)
 
             for (let lineIdx = 0; lineIdx < snippet.length; lineIdx++) {
                 const line = snippet[lineIdx];
@@ -910,6 +914,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Insert before cursor
                 terminalCode.insertBefore(lineEl, terminalCursor);
                 addLineNumber();
+                
+                // Dynamically grow terminal height as lines are added
+                if (terminalBody) {
+                    const currentLines = lineCount;
+                    const neededHeight = (currentLines * lineHeight) + 60; // 60px for padding
+                    const currentMinHeight = parseInt(getComputedStyle(terminalBody).minHeight) || 420;
+                    if (neededHeight > currentMinHeight) {
+                        terminalBody.style.minHeight = neededHeight + 'px';
+                    }
+                }
 
                 // Type each token character by character
                 let lineHtml = '';
@@ -944,7 +958,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 lineEl.innerHTML = finalHtml;
 
                 // Scroll terminal body to show latest line
-                const terminalBody = terminalCode.closest('.terminal-body');
                 if (terminalBody) {
                     terminalBody.scrollTop = terminalBody.scrollHeight;
                 }

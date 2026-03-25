@@ -1087,17 +1087,17 @@ ul, ol {
 .terminal-body {
     display: flex;
     padding: 20px 0;
-    min-height: 360px;
-    max-height: 400px;
+    min-height: 420px;
     overflow: hidden;
     position: relative;
+    transition: min-height 0.3s ease-out;
 }
 
 .terminal-line-numbers {
     padding: 0 14px 0 18px;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
-    line-height: 1.75;
+    font-size: 0.85rem;
+    line-height: 1.8;
     color: rgba(255, 255, 255, 0.15);
     user-select: none;
     text-align: right;
@@ -1109,8 +1109,8 @@ ul, ol {
     flex: 1;
     padding: 0 18px;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
-    line-height: 1.75;
+    font-size: 0.85rem;
+    line-height: 1.8;
     color: #e2e8f0;
     position: relative;
     overflow: hidden;
@@ -2049,9 +2049,9 @@ ul, ol {
 .portfolio-section-content {
     display: flex;
     align-items: stretch;
-    gap: 0;
+    gap: 20px;
     position: relative;
-    margin: 0 -60px;
+    margin: 0;
 }
 
 .portfolio-sticky-cta {
@@ -2060,16 +2060,16 @@ ul, ol {
     position: relative;
     z-index: 10;
     background: var(--bg-primary);
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .portfolio-sticky-cta::after {
     content: '';
     position: absolute;
     top: 0;
-    right: -30px;
+    right: -20px;
     bottom: 0;
-    width: 60px;
+    width: 20px;
     background: linear-gradient(90deg, var(--bg-primary) 0%, transparent 100%);
     z-index: 5;
     pointer-events: none;
@@ -2086,6 +2086,7 @@ ul, ol {
     position: relative;
     overflow: hidden;
     flex: 1;
+    padding-left: 4px;
     padding-right: 60px;
 }
 
