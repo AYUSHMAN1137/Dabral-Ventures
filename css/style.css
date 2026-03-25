@@ -5,24 +5,30 @@
 
 /* ========== CSS VARIABLES ========== */
 :root {
-    /* Colors - Dark Theme (Muted Aesthetic) */
-    --bg-primary: #0c0c0e;
-    --bg-secondary: #131315;
-    --bg-tertiary: #1a1a1d;
-    --bg-card: rgba(19, 19, 21, 0.85);
+    /* Colors - Dark Theme (Premium Modern) */
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-tertiary: #1a1a25;
+    --bg-card: rgba(18, 18, 26, 0.9);
     
-    /* Accent Colors - Muted & Warm */
-    --accent-primary: #c8b89a;
-    --accent-secondary: #a09080;
-    --accent-tertiary: #8a9a8e;
-    --accent-gradient: linear-gradient(135deg, #c8b89a 0%, #a09080 50%, #8a9a8e 100%);
-    --accent-glow: rgba(200, 184, 154, 0.15);
+    /* Accent Colors - Vibrant Electric Blue & Purple */
+    --accent-primary: #6366f1;
+    --accent-secondary: #8b5cf6;
+    --accent-tertiary: #06b6d4;
+    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    --accent-glow: rgba(99, 102, 241, 0.25);
+    
+    /* Highlight Colors for variety */
+    --highlight-cyan: #06b6d4;
+    --highlight-emerald: #10b981;
+    --highlight-amber: #f59e0b;
+    --highlight-rose: #f43f5e;
     
     /* Text Colors */
-    --text-primary: #e8e4df;
-    --text-secondary: #8a8680;
-    --text-muted: #5c5955;
-    --text-accent: #c8b89a;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --text-accent: #a5b4fc;
     
     /* Border & Effects */
     --border-color: rgba(255, 255, 255, 0.06);
@@ -62,18 +68,20 @@
 
 /* Light Theme Variables */
 [data-theme="light"] {
-    --bg-primary: #f5f3f0;
-    --bg-secondary: #faf8f5;
-    --bg-tertiary: #edebe8;
-    --bg-card: rgba(250, 248, 245, 0.9);
+    --bg-primary: #fafbfc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --bg-card: rgba(255, 255, 255, 0.95);
     
-    --text-primary: #1a1918;
-    --text-secondary: #6b6560;
-    --text-muted: #a09890;
-    
-    --border-color: rgba(0, 0, 0, 0.06);
-    --glass-bg: rgba(255, 255, 255, 0.6);
-    --glass-border: rgba(0, 0, 0, 0.06);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --text-accent: #6366f1;
+
+    --border-color: rgba(99, 102, 241, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(99, 102, 241, 0.15);
+    --accent-glow: rgba(99, 102, 241, 0.2);
 }
 
 /* ========== RESET & BASE ========== */
@@ -513,7 +521,7 @@ ul, ol {
 .orb-1 {
     width: 600px;
     height: 600px;
-    background: #2a2520;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.2) 50%, transparent 70%);
     top: -20%;
     left: -10%;
     animation-delay: 0s;
@@ -522,7 +530,7 @@ ul, ol {
 .orb-2 {
     width: 500px;
     height: 500px;
-    background: #1e2420;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, rgba(16, 185, 129, 0.15) 50%, transparent 70%);
     bottom: -20%;
     right: -10%;
     animation-delay: -7s;
@@ -531,7 +539,7 @@ ul, ol {
 .orb-3 {
     width: 400px;
     height: 400px;
-    background: #201e1a;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(244, 63, 94, 0.15) 50%, transparent 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -541,11 +549,11 @@ ul, ol {
 .orb-4 {
     width: 350px;
     height: 350px;
-    background: #1a1d1e;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(6, 182, 212, 0.1) 50%, transparent 70%);
     top: 10%;
     right: 15%;
     animation-delay: -5s;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 @keyframes orbFloat {
@@ -1539,10 +1547,18 @@ ul, ol {
     overflow: hidden;
 }
 
+/* Different accent colors for each service card */
+.service-card:nth-child(1) { --card-accent: #6366f1; }
+.service-card:nth-child(2) { --card-accent: #8b5cf6; }
+.service-card:nth-child(3) { --card-accent: #06b6d4; }
+.service-card:nth-child(4) { --card-accent: #10b981; }
+.service-card:nth-child(5) { --card-accent: #f59e0b; }
+.service-card:nth-child(6) { --card-accent: #f43f5e; }
+
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: var(--border-hover);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--card-accent, var(--border-hover));
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px color-mix(in srgb, var(--card-accent) 15%, transparent);
 }
 
 .card-glow {
