@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dabral Ventures - Build Websites, Apps & AI Tools That Scale</title>
+    <meta name="description" content="Fast. Affordable. Modern. Web development, app development, AI tools, and IT consultancy services that transform your business.">
+    <meta name="keywords" content="web development, app development, AI tools, digital marketing, IT services, India">
+    <meta name="author" content="Dabral Ventures">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dabral Ventures - Build Digital Excellence">
+    <meta property="og:description" content="We craft high-performance websites, apps & AI tools that scale your business.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dabralventures.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-circle"></div>
+                <div class="loader-circle"></div>
+                <div class="loader-circle"></div>
+            </div>
+            <span class="loader-text">Dabral Ventures</span>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Dabral<span class="logo-highlight">Ventures</span></span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active" data-text="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link" data-text="Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#why-us" class="nav-link" data-text="Why Us">Why Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#process" class="nav-link" data-text="Process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link" data-text="Work">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pricing" class="nav-link" data-text="Pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <a href="#contact" class="nav-cta magnetic">
+                    <span>Get Started</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="nav-progress" id="nav-progress"></div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+                <div class="gradient-orb orb-4"></div>
+                <div class="grid-overlay"></div>
+                <div class="noise-overlay"></div>
+                <!-- Animated scan lines -->
+                <div class="scan-lines"></div>
+            </div>
+            
+            <div class="hero-particles" id="particles"></div>
+
+            <!-- Floating code snippets in background -->
+            <div class="floating-code-snippets">
+                <div class="floating-snippet snippet-1">&lt;div class="magic"&gt;</div>
+                <div class="floating-snippet snippet-2">const future = await build();</div>
+                <div class="floating-snippet snippet-3">transform: scale(∞);</div>
+                <div class="floating-snippet snippet-4">{ innovation: true }</div>
+                <div class="floating-snippet snippet-5">&lt;/dream&gt;</div>
+                <div class="floating-snippet snippet-6">npm run launch 🚀</div>
+            </div>
+            
+            <div class="hero-split container">
+                <!-- LEFT SIDE - Animated Text -->
+                <div class="hero-left">
+                    <div class="hero-badge reveal-up">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">🚀 Now accepting new projects for 2025</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line reveal-up" style="--delay: 0.1s">
+                            <span class="title-word" data-text="Build">Build</span>
+                            <span class="title-word" data-text="Websites,">Websites,</span>
+                            <span class="title-word" data-text="Apps">Apps</span>
+                        </span>
+                        <span class="title-line reveal-up" style="--delay: 0.2s">
+                            <span class="title-word" data-text="&">& </span>
+                            <span class="title-word" data-text="AI">AI</span>
+                            <span class="title-word" data-text="Tools">Tools</span>
+                            <span class="title-word" data-text="That">That</span>
+                        </span>
+                        <span class="title-line gradient-text reveal-up" style="--delay: 0.3s">
+                            <span class="text-reveal glitch-text" data-text="Scale Your Business">Scale Your Business</span>
+                        </span>
+                    </h1>
+                    
+                    <p class="hero-description reveal-up" style="--delay: 0.4s">
+                        We're a team of designers, developers & strategists who craft 
+                        <span class="highlight typed-highlight">high-performance digital solutions</span> that 
+                        transform ideas into reality.
+                    </p>
+                    
+                    <div class="hero-cta reveal-up" style="--delay: 0.5s">
+                        <a href="#contact" class="btn btn-primary magnetic">
+                            <span class="btn-text">Get Your Website</span>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </span>
+                            <span class="btn-bg"></span>
+                        </a>
+                        <a href="#portfolio" class="btn btn-outline magnetic">
+                            <span class="btn-text">View Our Work</span>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats reveal-up" style="--delay: 0.6s">
+                        <div class="stat">
+                            <span class="stat-number" data-count="50">0</span>
+                            <span class="stat-suffix">+</span>
+                            <span class="stat-label">Projects Delivered</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="40">0</span>
+                            <span class="stat-suffix">+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="99">0</span>
+                            <span class="stat-suffix">%</span>
+                            <span class="stat-label">Satisfaction Rate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE - Terminal with Auto-typing Code -->
+                <div class="hero-right reveal-up" style="--delay: 0.3s">
+                    <div class="terminal-window" id="terminal-window">
+                        <!-- Terminal chrome / title bar -->
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <div class="terminal-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="4 17 10 11 4 5"></polyline>
+                                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                                </svg>
+                                <span>terminal — dabral_ventures</span>
+                            </div>
+                            <div class="terminal-actions">
+                                <span class="terminal-action">⌃</span>
+                                <span class="terminal-action">◻</span>
+                            </div>
+                        </div>
+                        <!-- Terminal body with line numbers -->
+                        <div class="terminal-body">
+                            <div class="terminal-line-numbers" id="terminal-line-numbers"></div>
+                            <div class="terminal-code" id="terminal-code">
+                                <div class="terminal-cursor" id="terminal-cursor"></div>
+                            </div>
+                        </div>
+                        <!-- Terminal status bar -->
+                        <div class="terminal-statusbar">
+                            <div class="status-left">
+                                <span class="status-item status-branch">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="6" y1="3" x2="6" y2="15"></line>
+                                        <circle cx="18" cy="6" r="3"></circle>
+                                        <circle cx="6" cy="18" r="3"></circle>
+                                        <path d="M18 9a9 9 0 0 1-9 9"></path>
+                                    </svg>
+                                    main
+                                </span>
+                                <span class="status-item">UTF-8</span>
+                            </div>
+                            <div class="status-right">
+                                <span class="status-item">HTML</span>
+                                <span class="status-item status-live">
+                                    <span class="live-dot"></span>
+                                    Live
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Glow effects -->
+                        <div class="terminal-glow"></div>
+                        <div class="terminal-reflection"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <span class="scroll-text">Scroll to explore</span>
+                    <div class="scroll-line">
+                        <div class="scroll-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+        </section>
+
+        <!-- Trusted By Marquee -->
+        <section class="trusted-section">
+            <div class="trusted-container">
+                <p class="trusted-label">Trusted by Industry Leaders</p>
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+                        <div class="marquee-content">
+                            <div class="brand-item"><span class="brand-name">VroPay</span></div>
+                            <div class="brand-item"><span class="brand-name">ElectroGlobe</span></div>
+                            <div class="brand-item"><span class="brand-name">MrCEO Dubai</span></div>
+                            <div class="brand-item"><span class="brand-name">Kalpvastra</span></div>
+                            <div class="brand-item"><span class="brand-name">DesignNovation</span></div>
+                            <!-- Duplicate for seamless loop -->
+                            <div class="brand-item"><span class="brand-name">VroPay</span></div>
+                            <div class="brand-item"><span class="brand-name">ElectroGlobe</span></div>
+                            <div class="brand-item"><span class="brand-name">MrCEO Dubai</span></div>
+                            <div class="brand-item"><span class="brand-name">Kalpvastra</span></div>
+                            <div class="brand-item"><span class="brand-name">DesignNovation</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal-up">
+                        <span class="tag-icon">💼</span>
+                        What We Do
+                    </span>
+                    <h2 class="section-title reveal-up" style="--delay: 0.1s">
+                        Services That <span class="gradient-text">Drive Results</span>
+                    </h2>
+                    <p class="section-description reveal-up" style="--delay: 0.2s">
+                        From concept to launch, we provide end-to-end digital solutions 
+                        tailored to your unique business needs
+                    </p>
+                </div>
+                
+                <div class="services-grid">
+                    <article class="service-card reveal-up" style="--delay: 0.1s" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                                <div class="icon-ring"></div>
+                            </div>
+                            <h3 class="card-title">Web Development</h3>
+                            <p class="card-description">
+                                Lightning-fast, SEO-optimized websites that captivate visitors 
+                                and convert them into loyal customers.
+                            </p>
+                            <ul class="card-features">
+                                <li><span class="feature-check">✓</span> Custom React/Next.js Development</li>
+                                <li><span class="feature-check">✓</span> E-commerce Solutions</li>
+                                <li><span class="feature-check">✓</span> CMS Integration</li>
+                                <li><span class="feature-check">✓</span> Performance Optimization</li>
+                            </ul>
+                            <div class="card-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Next.js</span>
+                                <span class="tag">Node.js</span>
+                            </div>
+                        </div>
+                        <div class="card-number">01</div>
+                    </article>
+                    
+                    <article class="service-card reveal-up" style="--delay: 0.2s" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                                </svg>
+                                <div class="icon-ring"></div>
+                            </div>
+                            <h3 class="card-title">App Development</h3>
+                            <p class="card-description">
+                                Native and cross-platform mobile apps that deliver 
+                                exceptional user experiences on every device.
+                            </p>
+                            <ul class="card-features">
+                                <li><span class="feature-check">✓</span> iOS & Android Apps</li>
+                                <li><span class="feature-check">✓</span> Cross-Platform (Flutter/React Native)</li>
+                                <li><span class="feature-check">✓</span> App Store Optimization</li>
+                                <li><span class="feature-check">✓</span> Push Notifications & Analytics</li>
+                            </ul>
+                            <div class="card-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">React Native</span>
+                                <span class="tag">Swift</span>
+                            </div>
+                        </div>
+                        <div class="card-number">02</div>
+                    </article>
+                    
+                    <article class="service-card reveal-up" style="--delay: 0.3s" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                                <div class="icon-ring"></div>
+                            </div>
+                            <h3 class="card-title">Digital Marketing</h3>
+                            <p class="card-description">
+                                Data-driven marketing strategies that boost your online 
+                                visibility and drive meaningful growth.
+                            </p>
+                            <ul class="card-features">
+                                <li><span class="feature-check">✓</span> SEO & Content Strategy</li>
+                                <li><span class="feature-check">✓</span> Social Media Marketing</li>
+                                <li><span class="feature-check">✓</span> PPC & Paid Advertising</li>
+                                <li><span class="feature-check">✓</span> Analytics & Reporting</li>
+                            </ul>
+                            <div class="card-tags">
+                                <span class="tag">SEO</span>
+                                <span class="tag">Google Ads</span>
+                                <span class="tag">Analytics</span>
+                            </div>
+                        </div>
+                        <div class="card-number">03</div>
+                    </article>
+                    
+                    <article class="service-card reveal-up" style="--delay: 0.4s" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                    <path d="M2 12l10 5 10-5"></path>
+                                </svg>
+                                <div class="icon-ring"></div>
+                            </div>
+                            <h3 class="card-title">IT Services</h3>
+                            <p class="card-description">
+                                Comprehensive IT solutions to keep your business 
+                                running smoothly and securely 24/7.
+                            </p>
+                            <ul class="card-features">
+                                <li><span class="feature-check">✓</span> Cloud Infrastructure</li>
+                                <li><span class="feature-check">✓</span> DevOps & CI/CD</li>
+                                <li><span class="feature-check">✓</span> Cybersecurity Solutions</li>
+                                <li><span class="feature-check">✓</span> 24/7 Technical Support</li>
+                            </ul>
+                            <div class="card-tags">
+                                <span class="tag">AWS</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">Security</span>
+                            </div>
+                        </div>
+                        <div class="card-number">04</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section class="why-us section" id="why-us">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal-up">
+                        <span class="tag-icon">⭐</span>
+                        Why Choose Us
+                    </span>
+                    <h2 class="section-title reveal-up" style="--delay: 0.1s">
+                        We're Not Just <span class="gradient-text">Developers</span>
+                    </h2>
+                    <p class="section-description reveal-up" style="--delay: 0.2s">
+                        We're your growth partners committed to your success. 
+                        Here's what makes us different.
+                    </p>
+                </div>
+                
+                <div class="why-grid">
+                    <div class="why-card reveal-up" style="--delay: 0.1s">
+                        <div class="why-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="why-title">Lightning Fast</h3>
+                        <p class="why-description">
+                            We deliver projects faster than industry standards without 
+                            compromising on quality. Time is money, we value yours.
+                        </p>
+                        <div class="why-stat">
+                            <span class="stat-value">2x</span>
+                            <span class="stat-text">Faster Delivery</span>
+                        </div>
+                    </div>
+                    
+                    <div class="why-card reveal-up" style="--delay: 0.2s">
+                        <div class="why-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="why-title">Quality Assured</h3>
+                        <p class="why-description">
+                            Every line of code is tested. Every pixel is perfected. 
+                            We don't ship until it's ready to impress.
+                        </p>
+                        <div class="why-stat">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-text">Bug-Free Delivery</span>
+                        </div>
+                    </div>
+                    
+                    <div class="why-card reveal-up" style="--delay: 0.3s">
+                        <div class="why-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="why-title">Always There</h3>
+                        <p class="why-description">
+                            24/7 support isn't just a promise, it's our commitment. 
+                            Your success is our priority, day and night.
+                        </p>
+                        <div class="why-stat">
+                            <span class="stat-value">24/7</span>
+                            <span class="stat-text">Support Available</span>
+                        </div>
+                    </div>
+                    
+                    <div class="why-card reveal-up" style="--delay: 0.4s">
+                        <div class="why-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3 class="why-title">Fair Pricing</h3>
+                        <p class="why-description">
+                            Premium quality at honest prices. No hidden fees, 
+                            no surprises. Transparent quotes, always.
+                        </p>
+                        <div class="why-stat">
+                            <span class="stat-value">30%</span>
+                            <span class="stat-text">Below Market Rate</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial -->
+                <div class="testimonial-spotlight reveal-up" style="--delay: 0.5s">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <blockquote class="testimonial-quote">
+                            Dabral Ventures transformed our online presence completely. 
+                            Their team delivered beyond expectations with exceptional 
+                            attention to detail and lightning-fast turnaround.
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <span>RK</span>
+                            </div>
+                            <div class="author-info">
+                                <span class="author-name">Rahul Kumar</span>
+                                <span class="author-role">CEO, ElectroGlobe</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <span>⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">5.0 Average Rating</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process section" id="process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal-up">
+                        <span class="tag-icon">🔄</span>
+                        Our Process
+                    </span>
+                    <h2 class="section-title reveal-up" style="--delay: 0.1s">
+                        From Idea to <span class="gradient-text">Launch</span>
+                    </h2>
+                    <p class="section-description reveal-up" style="--delay: 0.2s">
+                        A proven 4-step methodology that ensures every project 
+                        is delivered on time and exceeds expectations
+                    </p>
+                </div>
+                
+                <div class="process-timeline">
+                    <div class="timeline-track">
+                        <div class="timeline-progress" id="timeline-progress"></div>
+                    </div>
+                    
+                    <div class="process-steps">
+                        <div class="process-step reveal-left" data-step="1">
+                            <div class="step-marker">
+                                <span class="step-number">01</span>
+                                <div class="step-pulse"></div>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="step-title">Discovery & Consultation</h3>
+                                <p class="step-description">
+                                    We dive deep into your business, understand your goals, 
+                                    analyze your competition, and craft a winning strategy.
+                                </p>
+                                <ul class="step-details">
+                                    <li>Requirements Gathering</li>
+                                    <li>Market Research</li>
+                                    <li>Project Roadmap</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step reveal-right" data-step="2">
+                            <div class="step-marker">
+                                <span class="step-number">02</span>
+                                <div class="step-pulse"></div>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="13.5" cy="6.5" r=".5"></circle>
+                                        <circle cx="17.5" cy="10.5" r=".5"></circle>
+                                        <circle cx="8.5" cy="7.5" r=".5"></circle>
+                                        <circle cx="6.5" cy="12.5" r=".5"></circle>
+                                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="step-title">Design & Prototype</h3>
+                                <p class="step-description">
+                                    Our designers create stunning visuals and interactive 
+                                    prototypes that bring your vision to life.
+                                </p>
+                                <ul class="step-details">
+                                    <li>UI/UX Design</li>
+                                    <li>Interactive Prototypes</li>
+                                    <li>Design Revisions</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step reveal-left" data-step="3">
+                            <div class="step-marker">
+                                <span class="step-number">03</span>
+                                <div class="step-pulse"></div>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <polyline points="16 18 22 12 16 6"></polyline>
+                                        <polyline points="8 6 2 12 8 18"></polyline>
+                                    </svg>
+                                </div>
+                                <h3 class="step-title">Development & Testing</h3>
+                                <p class="step-description">
+                                    We build your solution using cutting-edge technologies 
+                                    with rigorous testing at every stage.
+                                </p>
+                                <ul class="step-details">
+                                    <li>Agile Development</li>
+                                    <li>Quality Assurance</li>
+                                    <li>Performance Optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step reveal-right" data-step="4">
+                            <div class="step-marker">
+                                <span class="step-number">04</span>
+                                <div class="step-pulse"></div>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <h3 class="step-title">Launch & Support</h3>
+                                <p class="step-description">
+                                    We deploy your project and provide ongoing support 
+                                    to ensure continuous success.
+                                </p>
+                                <ul class="step-details">
+                                    <li>Seamless Deployment</li>
+                                    <li>Training & Handover</li>
+                                    <li>Ongoing Maintenance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio section" id="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal-up">
+                        <span class="tag-icon">🎨</span>
+                        Our Work
+                    </span>
+                    <h2 class="section-title reveal-up" style="--delay: 0.1s">
+                        Projects That <span class="gradient-text">Inspire</span>
+                    </h2>
+                    <p class="section-description reveal-up" style="--delay: 0.2s">
+                        A showcase of our finest work that helped businesses 
+                        achieve their digital goals
+                    </p>
+                </div>
+                
+                <div class="portfolio-filter reveal-up" style="--delay: 0.3s">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web">Websites</button>
+                    <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                    <button class="filter-btn" data-filter="app">Apps</button>
+                </div>
+                
+                <div class="portfolio-section-content">
+                    <!-- Sticky CTA Card on Left -->
+                    <div class="portfolio-sticky-cta">
+                        <article class="portfolio-item portfolio-cta" data-category="cta">
+                            <a href="#contact" class="portfolio-link cta-link">
+                                <div class="cta-content">
+                                    <span class="cta-icon">🚀</span>
+                                    <h3 class="cta-title">Your Project<br>Could Be Next</h3>
+                                    <p class="cta-description">Let's build something amazing</p>
+                                    <span class="cta-btn">Start Project</span>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                    
+                    <!-- Scrolling Projects -->
+                    <div class="portfolio-slider-wrapper">
+                        <div class="portfolio-slider" id="portfolio-slider">
+                            <!-- VroPay -->
+                        <article class="portfolio-item" data-category="web">
+                            <div class="portfolio-preview-popup">
+                                <img src="assets/previews/vropay.jpg" alt="VroPay Preview" loading="lazy">
+                            </div>
+                            <a href="https://vropay.com" target="_blank" class="portfolio-link">
+                                <div class="portfolio-image">
+                                    <img src="assets/previews/vropay.jpg" alt="VroPay" class="portfolio-preview" loading="lazy">
+                                    <div class="image-placeholder">
+                                        <span class="placeholder-icon">💳</span>
+                                        <div class="placeholder-pattern"></div>
+                                    </div>
+                                    <div class="portfolio-overlay">
+                                        <span class="view-project">View Live</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-info">
+                                    <span class="portfolio-category">Fintech</span>
+                                    <h3 class="portfolio-title">VroPay</h3>
+                                    <p class="portfolio-description">Modern fintech platform with payment solutions</p>
+                                    <div class="portfolio-tech">
+                                        <span>React</span>
+                                        <span>Node.js</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                        
+                        <!-- ElectroGlobe -->
+                        <article class="portfolio-item" data-category="ecommerce">
+                            <div class="portfolio-preview-popup">
+                                <img src="assets/previews/electroglobe.jpg" alt="ElectroGlobe Preview" loading="lazy">
+                            </div>
+                            <a href="https://electroglobe.in" target="_blank" class="portfolio-link">
+                                <div class="portfolio-image">
+                                    <img src="assets/previews/electroglobe.jpg" alt="ElectroGlobe" class="portfolio-preview" loading="lazy">
+                                    <div class="image-placeholder">
+                                        <span class="placeholder-icon">🔌</span>
+                                        <div class="placeholder-pattern"></div>
+                                    </div>
+                                    <div class="portfolio-overlay">
+                                        <span class="view-project">View Live</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-info">
+                                    <span class="portfolio-category">E-commerce</span>
+                                    <h3 class="portfolio-title">ElectroGlobe</h3>
+                                    <p class="portfolio-description">Full-featured electronics marketplace</p>
+                                    <div class="portfolio-tech">
+                                        <span>Next.js</span>
+                                        <span>MongoDB</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                        
+                        <!-- DesignNovation -->
+                        <article class="portfolio-item" data-category="web">
+                            <div class="portfolio-preview-popup">
+                                <img src="assets/previews/designnovation.jpg" alt="DesignNovation Preview" loading="lazy">
+                            </div>
+                            <a href="https://designnovation.in" target="_blank" class="portfolio-link">
+                                <div class="portfolio-image">
+                                    <img src="assets/previews/designnovation.jpg" alt="DesignNovation" class="portfolio-preview" loading="lazy">
+                                    <div class="image-placeholder">
+                                        <span class="placeholder-icon">🎨</span>
+                                        <div class="placeholder-pattern"></div>
+                                    </div>
+                                    <div class="portfolio-overlay">
+                                        <span class="view-project">View Live</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-info">
+                                    <span class="portfolio-category">Portfolio</span>
+                                    <h3 class="portfolio-title">DesignNovation</h3>
+                                    <p class="portfolio-description">Creative portfolio showcasing design</p>
+                                    <div class="portfolio-tech">
+                                        <span>React</span>
+                                        <span>GSAP</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                        
+                        <!-- Kalpvastra -->
+                        <article class="portfolio-item" data-category="ecommerce">
+                            <div class="portfolio-preview-popup">
+                                <img src="assets/previews/kalpvastra.jpg" alt="Kalpvastra Preview" loading="lazy">
+                            </div>
+                            <a href="https://kalpvastra.vercel.app" target="_blank" class="portfolio-link">
+                                <div class="portfolio-image">
+                                    <img src="assets/previews/kalpvastra.jpg" alt="Kalpvastra" class="portfolio-preview" loading="lazy">
+                                    <div class="image-placeholder">
+                                        <span class="placeholder-icon">👗</span>
+                                        <div class="placeholder-pattern"></div>
+                                    </div>
+                                    <div class="portfolio-overlay">
+                                        <span class="view-project">View Live</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-info">
+                                    <span class="portfolio-category">E-commerce</span>
+                                    <h3 class="portfolio-title">Kalpvastra</h3>
+                                    <p class="portfolio-description">Premium traditional wear online store</p>
+                                    <div class="portfolio-tech">
+                                        <span>Next.js</span>
+                                        <span>Tailwind</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                        
+                        <!-- Duplicates for seamless loop -->
+                        <article class="portfolio-item" data-category="web">
+                            <div class="portfolio-preview-popup">
+                                <img src="assets/previews/vropay.jpg" alt="VroPay Preview" loading="lazy">
+                            </div>
+                            <a href="https://vropay.com" target="_blank" class="portfolio-link">
+                                <div class="portfolio-image">
+                                    <img src="assets/previews/vropay.jpg" alt="VroPay" class="portfolio-preview" loading="lazy">
+                                    <div class="image-placeholder">
+                                        <span class="placeholder-icon">💳</span>
+                                        <div class="placeholder-pattern"></div>
+                                    </div>
+                                    <div class="portfolio-overlay">
+                                        <span class="view-project">View Live</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-info">
+                                    <span class="portfolio-category">Fintech</span>
+                                    <h3 class="portfolio-title">VroPay</h3>
+                                    <p class="portfolio-description">Modern fintech platform with payment solutions</p>
+                                    <div class="portfolio-tech">
+                                        <span>React</span>
+                                        <span>Node.js</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                        
+                        <article class="portfolio-item" data-category="ecommerce">
+                            <div class="portfolio-preview-popup">
+                                <img src="assets/previews/electroglobe.jpg" alt="ElectroGlobe Preview" loading="lazy">
+                            </div>
+                            <a href="https://electroglobe.in" target="_blank" class="portfolio-link">
+                                <div class="portfolio-image">
+                                    <img src="assets/previews/electroglobe.jpg" alt="ElectroGlobe" class="portfolio-preview" loading="lazy">
+                                    <div class="image-placeholder">
+                                        <span class="placeholder-icon">🔌</span>
+                                        <div class="placeholder-pattern"></div>
+                                    </div>
+                                    <div class="portfolio-overlay">
+                                        <span class="view-project">View Live</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-info">
+                                    <span class="portfolio-category">E-commerce</span>
+                                    <h3 class="portfolio-title">ElectroGlobe</h3>
+                                    <p class="portfolio-description">Full-featured electronics marketplace</p>
+                                    <div class="portfolio-tech">
+                                        <span>Next.js</span>
+                                        <span>MongoDB</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                        
+                        <article class="portfolio-item" data-category="web">
+                            <div class="portfolio-preview-popup">
+                                <img src="assets/previews/designnovation.jpg" alt="DesignNovation Preview" loading="lazy">
+                            </div>
+                            <a href="https://designnovation.in" target="_blank" class="portfolio-link">
+                                <div class="portfolio-image">
+                                    <img src="assets/previews/designnovation.jpg" alt="DesignNovation" class="portfolio-preview" loading="lazy">
+                                    <div class="image-placeholder">
+                                        <span class="placeholder-icon">🎨</span>
+                                        <div class="placeholder-pattern"></div>
+                                    </div>
+                                    <div class="portfolio-overlay">
+                                        <span class="view-project">View Live</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-info">
+                                    <span class="portfolio-category">Portfolio</span>
+                                    <h3 class="portfolio-title">DesignNovation</h3>
+                                    <p class="portfolio-description">Creative portfolio showcasing design</p>
+                                    <div class="portfolio-tech">
+                                        <span>React</span>
+                                        <span>GSAP</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                        
+                        <article class="portfolio-item" data-category="ecommerce">
+                            <div class="portfolio-preview-popup">
+                                <img src="assets/previews/kalpvastra.jpg" alt="Kalpvastra Preview" loading="lazy">
+                            </div>
+                            <a href="https://kalpvastra.vercel.app" target="_blank" class="portfolio-link">
+                                <div class="portfolio-image">
+                                    <img src="assets/previews/kalpvastra.jpg" alt="Kalpvastra" class="portfolio-preview" loading="lazy">
+                                    <div class="image-placeholder">
+                                        <span class="placeholder-icon">👗</span>
+                                        <div class="placeholder-pattern"></div>
+                                    </div>
+                                    <div class="portfolio-overlay">
+                                        <span class="view-project">View Live</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-info">
+                                    <span class="portfolio-category">E-commerce</span>
+                                    <h3 class="portfolio-title">Kalpvastra</h3>
+                                    <p class="portfolio-description">Premium traditional wear online store</p>
+                                    <div class="portfolio-tech">
+                                        <span>Next.js</span>
+                                        <span>Tailwind</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing section" id="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal-up">
+                        <span class="tag-icon">✨</span>
+                        Transparent Pricing
+                    </span>
+                    <h2 class="section-title reveal-up" style="--delay: 0.1s">
+                        Choose Your <span class="gradient-text">Perfect Plan</span>
+                    </h2>
+                    <p class="section-description reveal-up" style="--delay: 0.2s">
+                        From simple landing pages to complex web applications — we have a solution for every budget
+                    </p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Basic Plan -->
+                    <div class="pricing-card reveal-up" style="--delay: 0.1s">
+                        <div class="pricing-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="pricing-name">Basic Landing Page</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">₹</span>
+                            <span class="price-amount">2,000</span>
+                        </div>
+                        <span class="pricing-sub">+ ₹0 subscription</span>
+                        <ul class="pricing-features">
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Simple one-page design</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>About + Services/Products</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Contact links (WhatsApp/Call)</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Mobile-responsive layout</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">Get Started</a>
+                    </div>
+
+                    <!-- Popular Plan -->
+                    <div class="pricing-card popular reveal-up" style="--delay: 0.2s">
+                        <span class="popular-badge">Most Popular</span>
+                        <div class="pricing-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3 class="pricing-name">AI Automation</h3>
+                        <div class="pricing-price">
+                            <span class="price-from">From</span>
+                            <span class="price-currency">₹</span>
+                            <span class="price-amount">25,000</span>
+                        </div>
+                        <span class="pricing-sub">+ ₹2,000+/mo subscription</span>
+                        <ul class="pricing-features">
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Custom AI solutions</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Workflow automation</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Chatbots & assistants</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Data processing & analytics</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>API integrations</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn primary">Get Started</a>
+                    </div>
+
+                    <!-- Premium Plan -->
+                    <div class="pricing-card reveal-up" style="--delay: 0.3s">
+                        <div class="pricing-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 class="pricing-name">App Development</h3>
+                        <div class="pricing-price">
+                            <span class="price-from">From</span>
+                            <span class="price-currency">₹</span>
+                            <span class="price-amount">35,000</span>
+                        </div>
+                        <span class="pricing-sub">+ Project-based subscription</span>
+                        <ul class="pricing-features">
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Fully custom mobile/web app</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>APIs, dashboards, integrations</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Cross-platform support</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Tailor-made to business needs</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info reveal-left">
+                        <span class="section-tag">
+                            <span class="tag-icon">📬</span>
+                            Get In Touch
+                        </span>
+                        <h2 class="contact-title">
+                            Let's Build Something
+                            <span class="gradient-text">Amazing Together</span>
+                        </h2>
+                        <p class="contact-description">
+                            Have a project in mind? We'd love to hear about it. 
+                            Drop us a message and we'll get back to you within 24 hours.
+                        </p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="item-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="item-content">
+                                    <span class="item-label">Email</span>
+                                    <a href="mailto:hello@dabralventures.com" class="item-value">hello@dabralventures.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="item-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                </div>
+                                <div class="item-content">
+                                    <span class="item-label">Phone</span>
+                                    <a href="tel:+919876543210" class="item-value">+91 98765 43210</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="item-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="item-content">
+                                    <span class="item-label">Location</span>
+                                    <span class="item-value">India (Remote Worldwide)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-socials">
+                            <span class="socials-label">Follow us</span>
+                            <div class="socials-list">
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-link" aria-label="GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-wrapper reveal-right">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-header">
+                                <h3>Send us a message</h3>
+                                <p>Fill out the form and we'll be in touch soon</p>
+                            </div>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <input type="text" id="name" name="name" required placeholder=" ">
+                                    <label for="name">Your Name</label>
+                                    <span class="form-highlight"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" required placeholder=" ">
+                                    <label for="email">Email Address</label>
+                                    <span class="form-highlight"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="tel" id="phone" name="phone" placeholder=" ">
+                                <label for="phone">Phone Number (Optional)</label>
+                                <span class="form-highlight"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="web">Web Development</option>
+                                    <option value="app">App Development</option>
+                                    <option value="marketing">Digital Marketing</option>
+                                    <option value="it">IT Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <label for="service">Service Interested In</label>
+                                <span class="form-highlight"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                                <label for="message">Tell us about your project</label>
+                                <span class="form-highlight"></span>
+                            </div>
+                            
+                            <button type="submit" class="form-submit btn btn-primary">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </span>
+                                <span class="btn-loading">
+                                    <svg class="spinner" width="20" height="20" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="20"></circle>
+                                    </svg>
+                                </span>
+                            </button>
+                            
+                            <div class="form-success" id="form-success">
+                                <div class="success-icon">✓</div>
+                                <h4>Message Sent!</h4>
+                                <p>We'll get back to you within 24 hours.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">Dabral<span class="logo-highlight">Ventures</span></span>
+                    </a>
+                    <p class="footer-tagline">
+                        Building digital excellence, one project at a time.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Web Development</a></li>
+                            <li><a href="#services">App Development</a></li>
+                            <li><a href="#services">Digital Marketing</a></li>
+                            <li><a href="#services">IT Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#why-us">About Us</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#process">Process</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © 2024 Dabral Ventures. All rights reserved. Made with ❤️ in India
+                </p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919876543210?text=Hi! I'm interested in your services." 
+       class="whatsapp-btn" 
+       target="_blank"
+       aria-label="Chat on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="whatsapp-tooltip">Chat with us!</span>
+    </a>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+        <svg class="progress-ring" width="46" height="46">
+            <circle cx="23" cy="23" r="20" stroke-width="2" fill="none"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
