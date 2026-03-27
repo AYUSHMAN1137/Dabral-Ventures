@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Social Media Hover</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #eff3f8; /* Soft subtle background */
+        }
+
+        .social-wrapper {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .social-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            width: 60px;
+            background: #ffffff;
+            border-radius: 50px;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+        }
+
+        .social-btn:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Specific specific hover width per content length (approximate) */
+        .social-btn.facebook:hover { width: 170px; }
+        .social-btn.twitter:hover { width: 160px; }
+        .social-btn.instagram:hover { width: 180px; }
+        .social-btn.github:hover { width: 160px; }
+        .social-btn.youtube:hover { width: 175px; }
+
+        .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 60px;
+            min-width: 60px; /* crucial to prevent shrinking */
+            border-radius: 50%;
+            background: transparent;
+            transition: background 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .icon-container i {
+            font-size: 22px;
+            color: #111; /* Default dark icon */
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .social-text {
+            font-size: 16px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            width: calc(100% - 60px);
+            display: inline-block;
+            text-align: center;
+            transform: translateX(-10px);
+            transition: opacity 0.3s ease 0.1s, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Custom Colors & Hover states */
+
+        /* Facebook */
+        .social-btn.facebook .social-text { color: #1877F2; }
+        .social-btn.facebook:hover .icon-container { background: #1877F2; }
+        .social-btn.facebook:hover .icon-container i { color: #ffffff; }
+
+        /* Twitter / X (using black or original blue, let's use the classic blue for recognition or X black) */
+        .social-btn.twitter .social-text { color: #1DA1F2; }
+        .social-btn.twitter:hover .icon-container { background: #1DA1F2; }
+        .social-btn.twitter:hover .icon-container i { color: #ffffff; }
+
+        /* Instagram */
+        .social-btn.instagram .social-text { color: #E1306C; }
+        .social-btn.instagram:hover .icon-container { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .social-btn.instagram:hover .icon-container i { color: #ffffff; }
+
+        /* GitHub */
+        .social-btn.github .social-text { color: #333333; }
+        .social-btn.github:hover .icon-container { background: #333333; }
+        .social-btn.github:hover .icon-container i { color: #ffffff; }
+
+        /* YouTube */
+        .social-btn.youtube .social-text { color: #FF0000; }
+        .social-btn.youtube:hover .icon-container { background: #FF0000; }
+        .social-btn.youtube:hover .icon-container i { color: #ffffff; }
+
+        /* Hover Reveal Effects */
+        .social-btn:hover .social-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="social-wrapper">
+        <a href="#" class="social-btn facebook">
+            <div class="icon-container">
+                <i class="fab fa-facebook-f"></i>
+            </div>
+            <span class="social-text">Facebook</span>
+        </a>
+
+        <a href="#" class="social-btn twitter">
+            <div class="icon-container">
+                <i class="fab fa-twitter"></i>
+            </div>
+            <span class="social-text">Twitter</span>
+        </a>
+
+        <a href="#" class="social-btn instagram">
+            <div class="icon-container">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <span class="social-text">Instagram</span>
+        </a>
+
+        <a href="#" class="social-btn github">
+            <div class="icon-container">
+                <i class="fab fa-github"></i>
+            </div>
+            <span class="social-text">GitHub</span>
+        </a>
+
+        <a href="#" class="social-btn youtube">
+            <div class="icon-container">
+                <i class="fab fa-youtube"></i>
+            </div>
+            <span class="social-text">YouTube</span>
+        </a>
+    </div>
+
+</body>
+</html>
