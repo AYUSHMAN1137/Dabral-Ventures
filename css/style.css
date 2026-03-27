@@ -94,6 +94,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+    overflow-x: hidden;
 }
 
 body {
@@ -102,6 +103,8 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -205,41 +208,40 @@ ul, ol {
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    mix-blend-mode: difference;
     display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .cursor, .cursor-follower {
+    .cursor {
         display: block;
+    }
+    .cursor-follower {
+        display: none !important;
     }
 }
 
 .cursor {
-    width: 8px;
-    height: 8px;
-    background: #fff;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1.5px solid var(--accent-primary);
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.3);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
-}
-
-.cursor-follower {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, border 0.3s ease;
+    transition: transform 0.1s ease, width 0.25s cubic-bezier(0.25, 1, 0.5, 1), height 0.25s cubic-bezier(0.25, 1, 0.5, 1), background 0.25s ease;
 }
 
 .cursor.hover {
-    transform: translate(-50%, -50%) scale(3);
-    background: var(--accent-primary);
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 212, 255, 0.15);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
 }
 
-.cursor-follower.hover {
-    width: 60px;
-    height: 60px;
-    border-color: var(--accent-primary);
+.cursor-follower {
+    display: none !important;
 }
 
 /* ========== CONTAINER ========== */
@@ -2105,12 +2107,8 @@ ul, ol {
 .portfolio-slider {
     display: flex;
     gap: 24px;
-    animation: portfolioSlide 30s linear infinite;
     width: max-content;
-}
-
-.portfolio-slider-wrapper:hover .portfolio-slider {
-    animation-play-state: paused;
+    /* Animation controlled by JS for manual drag support */
 }
 
 @keyframes portfolioSlide {
@@ -2953,49 +2951,236 @@ a.item-value:hover {
     color: var(--accent-primary);
 }
 
-/* ========== WHATSAPP BUTTON ========== */
-.whatsapp-btn {
+/* ========== SOCIAL FAB (Floating Action Button) ========== */
+.social-fab {
     position: fixed;
     bottom: 100px;
-    right: 30px;
+    right: 24px;
     z-index: 900;
-    width: 60px;
-    height: 60px;
-    background: #25D366;
+    touch-action: none;
+    user-select: none;
+}
+
+.fab-main {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    z-index: 10;
+}
+
+.fab-main:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(99, 102, 241, 0.5);
+}
+
+.fab-main:active {
+    transform: scale(0.95);
+}
+
+.fab-icon-open,
+.fab-icon-close {
+    position: absolute;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.fab-icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+.social-fab.active .fab-icon-open {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+.social-fab.active .fab-icon-close {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+.social-fab.active .fab-main {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* FAB Options Container */
+.fab-options {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    pointer-events: none;
+}
+
+.fab-option {
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-    transition: all var(--transition-normal);
+    text-decoration: none;
+    opacity: 0;
+    transform: scale(0) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
-.whatsapp-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-}
-
-.whatsapp-tooltip {
+.fab-option::before {
+    content: attr(data-tooltip);
     position: absolute;
-    right: 70px;
+    right: 54px;
     background: var(--bg-card);
     color: var(--text-primary);
-    padding: 10px 16px;
-    border-radius: var(--radius-md);
-    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
     white-space: nowrap;
     opacity: 0;
-    visibility: hidden;
     transform: translateX(10px);
-    transition: all var(--transition-fast);
+    transition: all 0.2s ease;
     box-shadow: var(--shadow-md);
+    pointer-events: none;
 }
 
-.whatsapp-btn:hover .whatsapp-tooltip {
+.fab-option:hover::before {
     opacity: 1;
-    visibility: visible;
     transform: translateX(0);
+}
+
+/* Individual Social Colors */
+.fab-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.fab-instagram {
+    background: linear-gradient(135deg, #E1306C 0%, #F77737 50%, #FCAF45 100%);
+}
+
+.fab-linkedin {
+    background: linear-gradient(135deg, #0077B5 0%, #005885 100%);
+}
+
+.fab-email {
+    background: linear-gradient(135deg, #EA4335 0%, #C5221F 100%);
+}
+
+.fab-option:hover {
+    transform: scale(1.15) translateY(0) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Active State - Show Options */
+.social-fab.active .fab-options {
+    pointer-events: auto;
+}
+
+.social-fab.active .fab-option {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.social-fab.active .fab-option:nth-child(1) { transition-delay: 0.05s; }
+.social-fab.active .fab-option:nth-child(2) { transition-delay: 0.1s; }
+.social-fab.active .fab-option:nth-child(3) { transition-delay: 0.15s; }
+.social-fab.active .fab-option:nth-child(4) { transition-delay: 0.2s; }
+
+/* Pulse Animation */
+.fab-pulse {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    animation: fabPulse 2s ease-out infinite;
+}
+
+@keyframes fabPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+.social-fab.active .fab-pulse {
+    animation: none;
+    opacity: 0;
+}
+
+/* Dragging State */
+.social-fab.dragging {
+    cursor: grabbing;
+}
+
+.social-fab.dragging .fab-main {
+    cursor: grabbing;
+    transform: scale(1.1);
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.5);
+}
+
+.social-fab.dragging .fab-pulse {
+    animation: none;
+    opacity: 0;
+}
+
+/* Desktop Hover Behavior */
+@media (hover: hover) and (pointer: fine) {
+    .social-fab:hover .fab-options {
+        pointer-events: auto;
+    }
+    
+    .social-fab:hover .fab-option {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    
+    .social-fab:hover .fab-option:nth-child(1) { transition-delay: 0.05s; }
+    .social-fab:hover .fab-option:nth-child(2) { transition-delay: 0.1s; }
+    .social-fab:hover .fab-option:nth-child(3) { transition-delay: 0.15s; }
+    .social-fab:hover .fab-option:nth-child(4) { transition-delay: 0.2s; }
+    
+    .social-fab:hover .fab-icon-open {
+        opacity: 0;
+        transform: rotate(90deg) scale(0);
+    }
+    
+    .social-fab:hover .fab-icon-close {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+    
+    .social-fab:hover .fab-main {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+    }
+    
+    .social-fab:hover .fab-pulse {
+        animation: none;
+        opacity: 0;
+    }
 }
 
 /* ========== BACK TO TOP ========== */
@@ -3227,11 +3412,9 @@ a.item-value:hover {
         text-align: center;
     }
     
-    .whatsapp-btn {
+    .social-fab {
         bottom: 90px;
         right: 20px;
-        width: 50px;
-        height: 50px;
     }
     
     .back-to-top {

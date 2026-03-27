@@ -3,8 +3,23 @@
    Premium Interactive Features
    ======================================== */
 
+// Disable scroll restoration on mobile (before DOM loads)
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Reset scroll position on mobile
+if (window.innerWidth <= 768) {
+    window.scrollTo(0, 0);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
+    
+    // Force scroll to top on mobile
+    if (window.innerWidth <= 768) {
+        window.scrollTo(0, 0);
+    }
 
     // ========== PRELOADER ==========
     const preloader = document.getElementById('preloader');
@@ -360,10 +375,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Restart animation
-        portfolioSlider.style.animation = 'none';
-        portfolioSlider.offsetHeight; // Trigger reflow
-        portfolioSlider.style.animation = 'portfolioSlide 30s linear infinite';
+        // Trigger custom event to reinitialize slider
+        window.dispatchEvent(new CustomEvent('portfolioFilterChanged'));
     };
 
     filterBtns.forEach(btn => {
@@ -774,6 +787,359 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ========== MOBILE PRICING CAROUSEL ==========
+    const initPricingCarousel = () => {
+        const pricingGrid = document.querySelector('.pricing-grid');
+        const pricingCards = document.querySelectorAll('.pricing-card');
+        const prevBtn = document.querySelector('.pricing-nav-btn.prev');
+        const nextBtn = document.querySelector('.pricing-nav-btn.next');
+        const pricingDots = document.querySelectorAll('.pricing-dot');
+        
+        if (!pricingGrid || pricingCards.length === 0) return;
+        
+        // Only initialize on mobile
+        const isMobile = () => window.innerWidth <= 768;
+        
+        let currentIndex = 1; // Start at Most Popular (middle card)
+        let isInitialized = false;
+        
+        const updateActiveCard = () => {
+            if (!isMobile()) {
+                // Reset for desktop
+                pricingCards.forEach(card => card.classList.remove('active'));
+                pricingDots.forEach(dot => dot.classList.remove('active'));
+                return;
+            }
+            
+            pricingCards.forEach((card, index) => {
+                if (index === currentIndex) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+            
+            // Update dots
+            pricingDots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        };
+        
+        const scrollToCard = (index, smooth = true) => {
+            if (!isMobile()) return;
+            
+            if (index < 0) index = 0;
+            if (index >= pricingCards.length) index = pricingCards.length - 1;
+            
+            currentIndex = index;
+            const card = pricingCards[index];
+            
+            // Calculate scroll position within the pricing grid only
+            const cardRect = card.getBoundingClientRect();
+            const gridRect = pricingGrid.getBoundingClientRect();
+            const cardCenter = card.offsetLeft - (gridRect.width / 2) + (cardRect.width / 2);
+            
+            // Scroll only the pricing grid horizontally, not the page
+            pricingGrid.scrollTo({
+                left: cardCenter,
+                behavior: smooth ? 'smooth' : 'auto'
+            });
+            
+            updateActiveCard();
+        };
+        
+        // Navigation buttons
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                scrollToCard(currentIndex - 1);
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                scrollToCard(currentIndex + 1);
+            });
+        }
+        
+        // Dot click navigation
+        pricingDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                scrollToCard(index);
+            });
+        });
+        
+        // Detect scroll and update active state
+        let scrollTimeout;
+        pricingGrid.addEventListener('scroll', () => {
+            if (!isMobile()) return;
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                // Find which card is most centered
+                const gridRect = pricingGrid.getBoundingClientRect();
+                const gridCenter = gridRect.left + gridRect.width / 2;
+                
+                let closestIndex = 0;
+                let closestDistance = Infinity;
+                
+                pricingCards.forEach((card, index) => {
+                    const cardRect = card.getBoundingClientRect();
+                    const cardCenter = cardRect.left + cardRect.width / 2;
+                    const distance = Math.abs(gridCenter - cardCenter);
+                    
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+                
+                currentIndex = closestIndex;
+                updateActiveCard();
+            }, 100);
+        });
+        
+        // Initial setup - only run once when pricing section is visible
+        const initCarousel = () => {
+            if (isMobile() && !isInitialized) {
+                isInitialized = true;
+                // Use IntersectionObserver to only scroll when section is in view
+                const pricingSection = document.querySelector('.pricing');
+                if (pricingSection) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                scrollToCard(1, false); // No smooth, instant
+                                observer.disconnect();
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observer.observe(pricingSection);
+                } else {
+                    scrollToCard(1, false);
+                }
+            } else if (!isMobile()) {
+                updateActiveCard();
+                isInitialized = false; // Reset for when going back to mobile
+            }
+        };
+        
+        // Handle resize - only update active state, don't scroll
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (isMobile()) {
+                    updateActiveCard();
+                } else {
+                    updateActiveCard();
+                    isInitialized = false;
+                }
+            }, 200);
+        });
+        
+        // Initialize
+        initCarousel();
+    };
+    
+    initPricingCarousel();
+
+    // ========== PORTFOLIO SLIDER WITH MANUAL DRAG/SWIPE ==========
+    const initPortfolioSlider = () => {
+        const slider = document.querySelector('.portfolio-slider');
+        const wrapper = document.querySelector('.portfolio-slider-wrapper');
+        if (!slider || !wrapper) return;
+        
+        // Stop CSS animation - we'll control it with JS
+        slider.style.animation = 'none';
+        
+        // State variables
+        let currentX = 0;
+        let direction = -1; // -1 = right to left, 1 = left to right
+        let baseSpeed = 1; // pixels per frame
+        let currentSpeed = baseSpeed;
+        let targetSpeed = baseSpeed;
+        let isDragging = false;
+        let startX = 0;
+        let startCurrentX = 0;
+        let lastMouseX = 0;
+        let velocity = 0;
+        let animationId = null;
+        let sliderWidth = 0;
+        let contentWidth = 0;
+        
+        // Clone items for seamless loop
+        const setupClones = () => {
+            // Remove existing clones
+            const clones = slider.querySelectorAll('.portfolio-item.clone');
+            clones.forEach(c => c.remove());
+            
+            // Get original visible items (not hidden by filter)
+            const items = slider.querySelectorAll('.portfolio-item:not(.clone):not(.hidden)');
+            contentWidth = 0;
+            items.forEach(item => {
+                contentWidth += item.offsetWidth + 24; // 24 = gap
+            });
+            
+            // Clone visible items
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                clone.classList.add('clone');
+                slider.appendChild(clone);
+            });
+            
+            sliderWidth = contentWidth;
+        };
+        
+        setupClones();
+        
+        // Handle resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                setupClones();
+            }, 200);
+        });
+        
+        // Animation loop
+        const animate = () => {
+            if (!isDragging) {
+                // Ease current speed towards target speed
+                currentSpeed += (targetSpeed - currentSpeed) * 0.02;
+                
+                // Move slider
+                currentX += direction * currentSpeed;
+                
+                // Loop seamlessly
+                if (direction === -1 && currentX <= -sliderWidth) {
+                    currentX += sliderWidth;
+                } else if (direction === 1 && currentX >= 0) {
+                    currentX -= sliderWidth;
+                }
+                
+                slider.style.transform = `translateX(${currentX}px)`;
+            }
+            
+            animationId = requestAnimationFrame(animate);
+        };
+        
+        animate();
+        
+        // Get pointer position (works for both mouse and touch)
+        const getPointerX = (e) => {
+            return e.touches ? e.touches[0].clientX : e.clientX;
+        };
+        
+        // Drag start
+        const onDragStart = (e) => {
+            isDragging = true;
+            startX = getPointerX(e);
+            startCurrentX = currentX;
+            lastMouseX = startX;
+            velocity = 0;
+            
+            slider.style.cursor = 'grabbing';
+            wrapper.style.cursor = 'grabbing';
+        };
+        
+        // Drag move
+        const onDragMove = (e) => {
+            if (!isDragging) return;
+            
+            const currentPointerX = getPointerX(e);
+            const diff = currentPointerX - startX;
+            const mouseDelta = currentPointerX - lastMouseX;
+            
+            // Calculate velocity for momentum
+            velocity = mouseDelta;
+            lastMouseX = currentPointerX;
+            
+            // Update position
+            currentX = startCurrentX + diff;
+            
+            // Keep within bounds with loop
+            if (currentX <= -sliderWidth) {
+                currentX += sliderWidth;
+                startCurrentX += sliderWidth;
+            } else if (currentX >= 0) {
+                currentX -= sliderWidth;
+                startCurrentX -= sliderWidth;
+            }
+            
+            slider.style.transform = `translateX(${currentX}px)`;
+        };
+        
+        // Drag end
+        const onDragEnd = (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            slider.style.cursor = 'grab';
+            wrapper.style.cursor = 'grab';
+            
+            // Calculate swipe speed and direction based on velocity
+            const absVelocity = Math.abs(velocity);
+            
+            if (absVelocity > 5) {
+                // Fast swipe detected - change direction based on swipe
+                if (velocity > 0) {
+                    // Swiped right = move left to right
+                    direction = 1;
+                } else {
+                    // Swiped left = move right to left
+                    direction = -1;
+                }
+                
+                // Start fast then slow down
+                // Fast swipe = high initial speed
+                const boostSpeed = Math.min(absVelocity * 0.5, 15);
+                currentSpeed = boostSpeed;
+                targetSpeed = baseSpeed;
+            }
+        };
+        
+        // Mouse events
+        wrapper.addEventListener('mousedown', onDragStart);
+        document.addEventListener('mousemove', onDragMove);
+        document.addEventListener('mouseup', onDragEnd);
+        
+        // Touch events
+        wrapper.addEventListener('touchstart', onDragStart, { passive: true });
+        document.addEventListener('touchmove', onDragMove, { passive: true });
+        document.addEventListener('touchend', onDragEnd);
+        
+        // Set initial cursor
+        wrapper.style.cursor = 'grab';
+        
+        // Pause on hover (optional - keeping the original behavior)
+        wrapper.addEventListener('mouseenter', () => {
+            if (!isDragging) {
+                targetSpeed = 0.3; // Slow down on hover
+            }
+        });
+        
+        wrapper.addEventListener('mouseleave', () => {
+            if (!isDragging) {
+                targetSpeed = baseSpeed;
+            }
+        });
+        
+        // Handle filter change event
+        window.addEventListener('portfolioFilterChanged', () => {
+            setTimeout(() => {
+                setupClones();
+                currentX = 0;
+                slider.style.transform = `translateX(${currentX}px)`;
+            }, 100);
+        });
+    };
+    
+    initPortfolioSlider();
+
     // ========== CONSOLE EASTER EGG ==========
     console.log('%c🚀 Dabral Ventures', 'font-size: 24px; font-weight: bold; color: #6366f1;');
     console.log('%cBuilding Digital Excellence', 'font-size: 14px; color: #8b5cf6;');
@@ -1032,6 +1398,139 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     createParticlesEnhanced();
+
+    // ========== SOCIAL FAB (Floating Action Button) ==========
+    const socialFab = document.getElementById('socialFab');
+    const fabMain = document.getElementById('fabMain');
+    
+    if (socialFab && fabMain) {
+        let isDragging = false;
+        let hasDragged = false;
+        let startX, startY;
+        let initialX, initialY;
+        let currentX, currentY;
+        
+        // Get stored position or use default
+        const storedPosition = localStorage.getItem('fabPosition');
+        if (storedPosition) {
+            const pos = JSON.parse(storedPosition);
+            socialFab.style.right = 'auto';
+            socialFab.style.bottom = 'auto';
+            socialFab.style.left = pos.x + 'px';
+            socialFab.style.top = pos.y + 'px';
+        }
+        
+        // Toggle FAB on click (for mobile)
+        fabMain.addEventListener('click', (e) => {
+            if (hasDragged) {
+                hasDragged = false;
+                return;
+            }
+            socialFab.classList.toggle('active');
+        });
+        
+        // Close FAB when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!socialFab.contains(e.target) && socialFab.classList.contains('active')) {
+                socialFab.classList.remove('active');
+            }
+        });
+        
+        // Close FAB on scroll
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (socialFab.classList.contains('active')) {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    socialFab.classList.remove('active');
+                }, 100);
+            }
+        }, { passive: true });
+        
+        // Drag functionality
+        const dragStart = (e) => {
+            if (e.target.closest('.fab-option')) return;
+            
+            isDragging = true;
+            hasDragged = false;
+            socialFab.classList.add('dragging');
+            
+            const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+            
+            const rect = socialFab.getBoundingClientRect();
+            startX = clientX;
+            startY = clientY;
+            initialX = rect.left;
+            initialY = rect.top;
+            
+            e.preventDefault();
+        };
+        
+        const drag = (e) => {
+            if (!isDragging) return;
+            
+            const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+            
+            const deltaX = clientX - startX;
+            const deltaY = clientY - startY;
+            
+            // Consider it a drag if moved more than 5px
+            if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
+                hasDragged = true;
+            }
+            
+            currentX = Math.max(0, Math.min(window.innerWidth - 60, initialX + deltaX));
+            currentY = Math.max(0, Math.min(window.innerHeight - 60, initialY + deltaY));
+            
+            socialFab.style.right = 'auto';
+            socialFab.style.bottom = 'auto';
+            socialFab.style.left = currentX + 'px';
+            socialFab.style.top = currentY + 'px';
+            
+            e.preventDefault();
+        };
+        
+        const dragEnd = () => {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            socialFab.classList.remove('dragging');
+            
+            // Save position
+            if (hasDragged) {
+                localStorage.setItem('fabPosition', JSON.stringify({ x: currentX, y: currentY }));
+            }
+        };
+        
+        // Mouse events
+        fabMain.addEventListener('mousedown', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', dragEnd);
+        
+        // Touch events
+        fabMain.addEventListener('touchstart', dragStart, { passive: false });
+        document.addEventListener('touchmove', drag, { passive: false });
+        document.addEventListener('touchend', dragEnd);
+        
+        // Reset position on double click
+        fabMain.addEventListener('dblclick', () => {
+            localStorage.removeItem('fabPosition');
+            socialFab.style.left = '';
+            socialFab.style.top = '';
+            socialFab.style.right = '';
+            socialFab.style.bottom = '';
+            // Reset to default position based on screen size
+            if (window.innerWidth <= 768) {
+                socialFab.style.right = '16px';
+                socialFab.style.bottom = '90px';
+            } else {
+                socialFab.style.right = '24px';
+                socialFab.style.bottom = '100px';
+            }
+        });
+    }
 
 });
 
